@@ -117,7 +117,7 @@
 
             <div class="hero-stats">
               <div class="stat">
-                <div class="stat-number">500+</div>
+                <div class="stat-number">100+</div>
                 <div class="stat-label">Projects Completed</div>
               </div>
               <div class="stat">
@@ -482,147 +482,98 @@
           </p>
         </div>
 
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Let's Discuss Your Project</h3>
-            <p>
-              Have questions about our services or need help with your academic
-              project? Our expert team is here to assist you every step of the
-              way.
-            </p>
-
-            <div class="contact-details">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Email Us</h4>
-                  <a href="mailto:support@researchhelpdesk.site"
-                    >support@researchhelpdesk.site</a
-                  >
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Call Us</h4>
-                  <a href="tel:+94703640804">+94703640804</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Location</h4>
-                  <p>Available Worldwide</p>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Support Hours</h4>
-                  <p>24/7 Available</p>
-                </div>
-              </div>
+        <!-- Contact Form with Formspree Integration -->
+        <form
+          action="https://formsubmit.co/support@researchhelpdesk.site"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
             </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
 
-            <div class="contact-image">
-              <img
-                src="images/Blog post-bro (1).png"
-                alt="Contact Support"
-                class="floating-img"
+          <div class="form-row">
+            <div class="form-group">
+              <label for="project_type">Project Type *</label>
+              <select id="project_type" name="project_type" required>
+                <option value="">Select Project Type</option>
+                <option value="dissertation">Dissertation</option>
+                <option value="assignment">Assignment</option>
+                <option value="research">Research Project</option>
+                <option value="essay">Essay</option>
+                <option value="case-study">Case Study</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="deadline">Deadline</label>
+              <input type="date" id="deadline" name="deadline" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject/Topic *</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Please provide detailed information about your project requirements..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="attachments">Attach Documents (Optional)</label>
+            <div class="file-upload">
+              <input
+                type="file"
+                id="attachments"
+                name="attachments"
+                multiple
+                accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
               />
+              <label for="attachments" class="file-label">
+                <i class="fas fa-upload"></i>
+                <span>Click to upload files or drag and drop</span>
+              </label>
+              <p class="file-info">
+                Supported formats: PDF, DOC, DOCX, TXT, JPG, PNG (Max 10MB each)
+              </p>
             </div>
+            <div id="fileList" class="file-list"></div>
           </div>
 
-          <div class="contact-form">
-            <form id="contactForm" class="form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Full Name *</label>
-                  <input type="text" id="name" name="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address *</label>
-                  <input type="email" id="email" name="email" required />
-                </div>
-              </div>
+          <!-- Optional Hidden Fields for Customizing the Email Subject and Message -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Submission from Contact Form"
+          />
+          <input
+            type="hidden"
+            name="_message"
+            value="You have received a new submission from the contact form on your website."
+          />
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="project_type">Project Type *</label>
-                  <select id="project_type" name="project_type" required>
-                    <option value="">Select Project Type</option>
-                    <option value="dissertation">Dissertation</option>
-                    <option value="assignment">Assignment</option>
-                    <option value="research">Research Project</option>
-                    <option value="essay">Essay</option>
-                    <option value="case-study">Case Study</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="deadline">Deadline</label>
-                  <input type="date" id="deadline" name="deadline" />
-                </div>
-              </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
 
-              <div class="form-group">
-                <label for="subject">Subject/Topic *</label>
-                <input type="text" id="subject" name="subject" required />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Project Details *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Please provide detailed information about your project requirements..."
-                  required
-                ></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="attachments">Attach Documents (Optional)</label>
-                <div class="file-upload">
-                  <input
-                    type="file"
-                    id="attachments"
-                    name="attachments"
-                    multiple
-                    accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
-                  />
-                  <label for="attachments" class="file-label">
-                    <i class="fas fa-upload"></i>
-                    <span>Click to upload files or drag and drop</span>
-                  </label>
-                  <p class="file-info">
-                    Supported formats: PDF, DOC, DOCX, TXT, JPG, PNG (Max 10MB
-                    each)
-                  </p>
-                </div>
-                <div id="fileList" class="file-list"></div>
-              </div>
-
-              <button type="submit" class="btn btn-primary" id="submitBtn">
-                <span>Send Message</span>
-                <i class="fas fa-paper-plane"></i>
-              </button>
-
-              <div id="formMessage" class="form-message"></div>
-            </form>
-          </div>
-        </div>
+          <div id="formMessage" class="form-message"></div>
+        </form>
       </div>
     </section>
 
